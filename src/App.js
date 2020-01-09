@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
+import Subway from './components/Subway';
 
 const App = () => {
   return (
     <div>
-      <Route path="/" exact={true} component={Home} />;
+      <Switch>
+        <Route path="/" exact={true} component={Home} />;
+        <Route path="/Subway" component={Subway} />
+      </Switch>
     </div>
   );
 };
