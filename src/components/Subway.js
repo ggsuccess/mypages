@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+
 const Subway = () => {
   const style = {
     border: '2px solid black',
-    width: '60%'
+    width: '60%',
   };
   const white = {
-    color: 'white'
+    color: 'white',
   };
   return (
     <>
@@ -29,6 +30,9 @@ const Subway = () => {
           </th>
         </tr>
         <tr>
+          <th style={{ backgroundColor: '#ff0000' }}>
+            <Link to="/Subway/4" style={white}></Link>
+          </th>
           <th>
             <Link></Link>
           </th>
