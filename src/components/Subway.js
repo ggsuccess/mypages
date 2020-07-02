@@ -13,28 +13,37 @@ const Subway = () => {
     <>
       <table className="tableContents" style={style} align="center">
         <tr>
-          <th style={{ backgroundColor: '#0404B4' }}>
+          <th style={{ backgroundColor: '#005daa' }}>
             <Link to="/Subway/1" style={white}>
               1
             </Link>
           </th>
-          <th style={{ backgroundColor: '#04B404' }}>
+          <th style={{ backgroundColor: '#00a44a' }}>
             <Link to="/Subway/2" style={white}>
               2
             </Link>
           </th>
-          <th style={{ backgroundColor: '#FF8000' }}>
+          <th style={{ backgroundColor: '#f47d30' }}>
             <Link to="/Subway/3" style={white}>
               3
             </Link>
           </th>
         </tr>
         <tr>
-          <th style={{ backgroundColor: '#ff0000' }}>
-            <Link to="/Subway/4" style={white}></Link>
+          <th style={{ backgroundColor: '#289dd5' }}>
+            <Link to="/Subway/4" style={white}>
+              4
+            </Link>
           </th>
-          <th>
-            <Link></Link>
+          <th style={{ backgroundColor: '#936fb1' }}>
+            <Link to="/Subway/5" style={white}>
+              5
+            </Link>
+          </th>
+          <th style={{ backgroundColor: '#c77539' }}>
+            <Link to="/Subway/6" style={white}>
+              6
+            </Link>
           </th>
         </tr>
       </table>
