@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Link } from 'react-router-dom';
 
 const Subway = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const apicall = async () => {
+      const res = await fetch('http://localhost:5000');
+      res.json().then((res) => setData(data.concat(res)));
+    };
+  });
   const style = {
     border: '2px solid black',
     width: '60%',
@@ -15,35 +22,40 @@ const Subway = () => {
         <tr>
           <th style={{ backgroundColor: '#005daa' }}>
             <Link to="/Subway/1" style={white}>
-              1
+              1호선
             </Link>
           </th>
           <th style={{ backgroundColor: '#00a44a' }}>
             <Link to="/Subway/2" style={white}>
-              2
+              2호선
             </Link>
           </th>
           <th style={{ backgroundColor: '#f47d30' }}>
             <Link to="/Subway/3" style={white}>
-              3
+              3호선
             </Link>
           </th>
         </tr>
         <tr>
           <th style={{ backgroundColor: '#289dd5' }}>
             <Link to="/Subway/4" style={white}>
-              4
+              4호선
             </Link>
           </th>
           <th style={{ backgroundColor: '#936fb1' }}>
             <Link to="/Subway/5" style={white}>
-              5
+              5호선
             </Link>
           </th>
           <th style={{ backgroundColor: '#c77539' }}>
             <Link to="/Subway/6" style={white}>
-              6
+              6호선
             </Link>
+          </th>
+        </tr>
+        <tr>
+          <th style={{ backgroundColor: '' }}>
+            <Link></Link>
           </th>
         </tr>
       </table>
