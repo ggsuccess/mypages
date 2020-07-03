@@ -12,6 +12,7 @@ const Subway = () => {
   const style = {
     border: '2px solid black',
     width: '60%',
+    padding: '3px',
   };
   const white = {
     color: 'white',

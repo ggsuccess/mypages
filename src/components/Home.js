@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
   const style = {
@@ -9,7 +10,9 @@ const Home = () => {
   };
   return (
     <div className="HomeTitle">
-      <div align="center">보고싶은 부분을 골라요</div>
+      <div className="wording" align="center">
+        보고싶은 부분을 골라요
+      </div>
       <table style={style} align="center">
         <tr>
           <th>
