@@ -5,20 +5,21 @@ const Home = () => {
   const style = {
     border: '2px solid black',
     width: '60%',
+    padding: '5px',
   };
   return (
     <div className="HomeTitle">
-      <div>보고싶은 부분을 골라요</div>
-      <table style={style}>
+      <div align="center">보고싶은 부분을 골라요</div>
+      <table style={style} align="center">
         <tr>
-          <td>
+          <th>
             <Link to="/Subway" style={{}}>
               지하철
             </Link>
-          </td>
-          <td>
+          </th>
+          <th>
             <Link to="/Soccer">축구</Link>
-          </td>
+          </th>
         </tr>
       </table>
     </div>
