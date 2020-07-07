@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import SubwayLine from './SubwayLine';
 
 const Subway = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    const apicall = async () => {
-      const res = await fetch('http://localhost:5000');
-      res.json().then((res) => setData(data.concat(res)));
-    };
-  });
   const style = {
     border: '2px solid black',
     width: '60%',
@@ -58,9 +52,12 @@ const Subway = () => {
           <th style={{ backgroundColor: '' }}>
             <Link></Link>
           </th>
+          <th style={{ backgroundColor: '' }}>
+            <Link></Link>
+          </th>
         </tr>
       </table>
-      <Route path="/Subway/:LineNumber" />
+      <Route path="/Subway/:LineNumber" component={SubwayLine} />
     </>
   );
 };
