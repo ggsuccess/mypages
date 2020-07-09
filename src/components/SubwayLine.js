@@ -7,12 +7,13 @@ const SubwayLine = ({ match }) => {
   useEffect(() => {
     fetch(`http://localhost:5000/Subway/${num}`)
       .then((res) => res.json())
-      .then((res) => (data.length === 0 ? setData(data.concat(res)) : data));
-  }, []);
+      .then((res) => setData(data.concat(res)))
+      .catch((err) => console.log('errmsg:' + err));
+  }, [data]);
   if (!data) {
     return <>loading........</>;
   } else if (data) {
-    console.log(data);
+    //console.log(data);
     return (
       <>
         <div>
