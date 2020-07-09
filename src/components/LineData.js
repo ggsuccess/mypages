@@ -1,9 +1,10 @@
 import React from 'react';
+import './LineData.css';
 
 const LineData = ({ num, name, transfer, transferLine }) => {
   return (
     <>
-      <table border="1px solid black" align="center">
+      <table className="data-table" align="center">
         <tr>
           <th>역번호</th>
           <th>역명</th>
