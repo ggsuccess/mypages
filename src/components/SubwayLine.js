@@ -10,7 +10,7 @@ const SubwayLine = ({ match }) => {
       .then((res) => setData(data.concat(res)))
       .catch((err) => console.log('errmsg:' + err));
   }, [data]);
-  if (!data) {
+  if (data.length === 0) {
     return <>loading........</>;
   } else if (data) {
     //console.log(data);
