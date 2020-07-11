@@ -8,8 +8,8 @@ const SubwayLine = ({ match }) => {
     fetch(`http://localhost:5000/Subway/${num}`)
       .then((res) => res.json())
       .then((res) => setData(data.concat(res)))
-      .catch((err) => console.log('errmsg:' + err));
-  }, [data]);
+      .catch((err) => console.error('errmsg:' + err));
+  }, []);
   if (data.length === 0) {
     return <>loading........</>;
   } else if (data) {
