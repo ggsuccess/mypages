@@ -11,7 +11,11 @@ const SubwayLine = ({ match }) => {
       .catch((err) => console.error('errmsg:' + err));
   }, []);
   if (data.length === 0) {
-    return <>loading........</>;
+    return (
+      <>
+        <p style={{ fontSize: '30px', textAlign: 'center' }}>loading........</p>
+      </>
+    );
   } else if (data) {
     //console.log(data);
     return (
