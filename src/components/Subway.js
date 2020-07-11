@@ -49,11 +49,20 @@ const Subway = () => {
           </th>
         </tr>
         <tr>
-          <th style={{ backgroundColor: '' }}>
-            <Link></Link>
+          <th style={{ backgroundColor: '#677718' }}>
+            <Link to="/Subway/7" style={white}>
+              7호선
+            </Link>
           </th>
-          <th style={{ backgroundColor: '' }}>
-            <Link></Link>
+          <th style={{ backgroundColor: '#f15b66' }}>
+            <Link to="/Subway/8" style={white}>
+              8호선
+            </Link>
+          </th>
+          <th style={{ backgroundColor: '#c6b182' }}>
+            <Link to="/Subway/9" style={white}>
+              9호선
+            </Link>
           </th>
         </tr>
       </table>
