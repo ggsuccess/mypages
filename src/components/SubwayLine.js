@@ -20,17 +20,35 @@ const SubwayLine = ({ match }) => {
     //console.log(data);
     return (
       <>
-        <div>
-          {data.map((item) => (
-            <LineData
-              key={item.stationNo}
-              num={item.stationNo}
-              name={item.stationName}
-              transfer={item.transfer}
-              transferLine={item.transferLine}
-            />
-          ))}
-        </div>
+        <table>
+          <tr>
+            <th>역번호</th>
+            <th>역명</th>
+            <th>환승여부</th>
+            <th>환승노선</th>
+          </tr>
+          <tr>
+            <div>
+              {data.map((item) => (
+                <LineData
+                  key={item.stationNo}
+                  num={item.stationNo}
+                  name={item.stationName}
+                  transfer={item.transfer}
+                  transferLine={item.transferLine}
+                />
+              ))}
+            </div>
+            {/* {data.map((item) => (
+              <>
+                <td>{item.stationNo}</td>
+                <td>{item.stationName}</td>
+                <td>{item.transfer ? '가능' : '불가능'}</td>
+                <td>{item.transferLine}</td>
+              </>
+            ))} */}
+          </tr>
+        </table>
       </>
     );
   }
