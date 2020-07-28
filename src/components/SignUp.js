@@ -4,9 +4,18 @@ const SignUp = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [nick, setNick] = useState('');
-  const onChangeHandle = (e) => {
-    e.preventDefault();
+  const [gender, setGender] = useState('');
+  const onChangeId = (e) => {
     setId(e.target.value);
+  };
+  const onChangePw = (e) => {
+    setPw(e.target.value);
+  };
+  const onChangeNick = (e) => {
+    setNick(e.target.value);
+  };
+  const onChangeGender = (e) => {
+    setGender(e.target.value);
   };
   return (
     <>
@@ -19,23 +28,44 @@ const SignUp = () => {
           value={id}
           maxLength={30}
           autoFocus={true}
-          onChange={onChangeHandle}
+          onChange={onChangeId}
         ></input>
         <br />
         비밀번호:
-        <input type="password" name="pw" value={pw} maxLength={30}></input>
+        <input
+          type="password"
+          name="pw"
+          value={pw}
+          maxLength={30}
+          onChange={onChangePw}
+        ></input>
         <br />
         닉네임:
-        <input type="text" name="nickname" value={nick} maxLength={30}></input>
+        <input
+          type="text"
+          name="nickname"
+          value={nick}
+          maxLength={30}
+          onChange={onChangeNick}
+        ></input>
         <br />
         성별:
-        <input type="radio" name="gender" value="male" checked>
+        <input
+          type="radio"
+          name="gender"
+          value="male"
+          onChange={onChangeGender}
+        >
           남성
         </input>
-        <input type="radio" name="gender" value="female">
+        <input
+          type="radio"
+          name="gender"
+          value="female"
+          onChange={onChangeGender}
+        >
           여성
         </input>
-        <input type=""></input>
         <br />
         생년월일:
         <select name="birthdayYear">
