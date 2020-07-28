@@ -7,7 +7,7 @@ const SubwayLine = ({ match }) => {
   useEffect(() => {
     fetch(`http://localhost:5000/Subway/${num}`)
       .then((res) => res.json())
-      .then((res) => setData(data.concat(res)))
+      .then((res) => setData(res))
       .catch((err) => console.error('errmsg:' + err));
   }, []);
   if (data.length === 0) {
@@ -20,7 +20,7 @@ const SubwayLine = ({ match }) => {
     //console.log(data);
     return (
       <>
-        <table>
+        <table align="center">
           <tr>
             <th>역번호</th>
             <th>역명</th>
@@ -28,17 +28,16 @@ const SubwayLine = ({ match }) => {
             <th>환승노선</th>
           </tr>
           <tr>
-            <div>
-              {data.map((item) => (
-                <LineData
-                  key={item.stationNo}
-                  num={item.stationNo}
-                  name={item.stationName}
-                  transfer={item.transfer}
-                  transferLine={item.transferLine}
-                />
-              ))}
-            </div>
+            {data.map((item) => (
+              <LineData
+                key={item.stationNo}
+                num={item.stationNo}
+                name={item.stationName}
+                transfer={item.transfer}
+                transferLine={item.transferLine}
+              />
+            ))}
+
             {/* {data.map((item) => (
               <>
                 <td>{item.stationNo}</td>
