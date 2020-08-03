@@ -5,6 +5,7 @@ const SignUp = () => {
   const [pw, setPw] = useState('');
   const [nick, setNick] = useState('');
   const [gender, setGender] = useState('');
+  const [birth, setBirth] = useState('');
   const onChangeId = (e) => {
     setId(e.target.value);
   };
@@ -42,6 +43,7 @@ const SignUp = () => {
           autoFocus={true}
           onChange={onChangeId}
         ></input>
+        (0~30자의 영문/숫자)
         <br />
         비밀번호:
         <input
@@ -51,8 +53,9 @@ const SignUp = () => {
           maxLength={30}
           onChange={onChangePw}
         ></input>
+        (30자 이하)
         <br />
-        닉네임:
+        닉네임:(ㄱ)
         <input
           type="text"
           name="nickname"
@@ -103,24 +106,24 @@ const SignUp = () => {
           <option value="">1986년</option>
           <option value="">1987년</option>
           <option value="">1988년</option>
-          <option value="">1976</option>
-          <option value="">1976</option>
-          <option value="">1976</option>
-          <option value="">1976</option>
+          <option value="">1989</option>
+          <option value="">1990</option>
+          <option value="">1991</option>
+          <option value="">1992</option>
         </select>
         <select name="birthdayMonth" onChange>
-          <option value={1}>1월</option>
-          <option value={2}>2월</option>
-          <option value={3}>3월</option>
-          <option value={4}>4월</option>
-          <option value={5}>5월</option>
-          <option value={6}>6월</option>
-          <option value={7}>7월</option>
-          <option value={8}>8월</option>
-          <option value={9}>9월</option>
-          <option value={10}>10월</option>
-          <option value={11}>11월</option>
-          <option value={12}>12월</option>
+          <option value="1">1월</option>
+          <option value="2">2월</option>
+          <option value="3">3월</option>
+          <option value="4">4월</option>
+          <option value="5">5월</option>
+          <option value="6">6월</option>
+          <option value="7">7월</option>
+          <option value="8">8월</option>
+          <option value="9">9월</option>
+          <option value="10">10월</option>
+          <option value="11">11월</option>
+          <option value="12">12월</option>
         </select>
         <select>
           <option value="1일">1일</option>
