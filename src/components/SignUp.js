@@ -17,9 +17,21 @@ const SignUp = () => {
   const onChangeGender = (e) => {
     setGender(e.target.value);
   };
+  const handleSubmit = () => {
+    fetch('http://localhost:5000/SignUp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: id, pw: pw, nick: nick, gender: gender }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        alert('회원가입에 성공했습니다.'), console.log(res);
+      })
+      .catch((err) => console.error(err), alert('오류발생'));
+  };
   return (
     <>
-      <form onSubmit={} method="post">
+      <form onSubmit={handleSubmit} method="post">
         <div title="회원 가입">회원 가입</div>
         아이디:
         <input
@@ -54,6 +66,7 @@ const SignUp = () => {
           type="radio"
           name="gender"
           value="male"
+          checked
           onChange={onChangeGender}
         >
           남성
@@ -68,7 +81,7 @@ const SignUp = () => {
         </input>
         <br />
         생년월일:
-        <select name="birthdayYear" onChange={}>
+        <select name="birthdayYear" onChange={onChangebirthday}>
           <option label="" value="">
             1970년
           </option>
