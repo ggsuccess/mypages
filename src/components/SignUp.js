@@ -51,7 +51,7 @@ const SignUp = () => {
   };
   return (
     <>
-      <form onSubmit={() => handleSubmit()} method="post">
+      <form onSubmit={handleSubmit} method="post">
         <div title="회원 가입">회원 가입</div>
         아이디:
         <input
