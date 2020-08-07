@@ -16,8 +16,8 @@ const App = () => {
         <Route path="/" exact={true} component={Home} />;
         <Route path="/Subway" component={Subway} />
         <Route path="/Soccer" component={Soccer} />
-        <Route path="/SignUp" component={SignUp} />
       </Switch>
+      <Route path="/SignUp" component={SignUp} />
     </div>
   );
 };

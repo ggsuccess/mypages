@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const SignUp = () => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [nick, setNick] = useState('');
   const [gender, setGender] = useState('');
-  const [birth, setBirth] = useState('');
+  const [birthYear, setBirthYear] = useState('');
+  const [birthMonth, setBirthMonth] = useState('');
+  const [birthDay, setBirthDay] = useState('');
+  let birthDays = '';
   const onChangeId = (e) => {
     setId(e.target.value);
   };
@@ -18,21 +22,36 @@ const SignUp = () => {
   const onChangeGender = (e) => {
     setGender(e.target.value);
   };
+  const onChangebirthYear = (e) => {
+    setBirthYear(e.target.value);
+  };
+  const onChangebirthMonth = (e) => {
+    setBirthMonth(e.target.value);
+  };
+  const onChangebirthDay = (e) => {
+    setBirthDay(e.target.value);
+  };
+  if (birthYear && birthMonth && birthDay) {
+    birthDays = `${birthYear}-${birthMonth}-${birthDay}`;
+  }
   const handleSubmit = () => {
-    fetch('http://localhost:5000/SignUp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: id, pw: pw, nick: nick, gender: gender }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        alert('회원가입에 성공했습니다.'), console.log(res);
+    console.log('서버에 요청');
+    axios
+      .post('http://localhost:5000/SignUp', {
+        id: id,
+        pw: pw,
+        nick: nick,
+        gender: gender,
+        birth: birthDays,
       })
-      .catch((err) => console.error(err), alert('오류발생'));
+      .then((res) => {
+        alert('회원가입에 성공했습니다.');
+      })
+      .catch((err) => console.error(err));
   };
   return (
     <>
-      <form onSubmit={handleSubmit} method="post">
+      <form onSubmit={() => handleSubmit()} method="post">
         <div title="회원 가입">회원 가입</div>
         아이디:
         <input
@@ -42,7 +61,7 @@ const SignUp = () => {
           maxLength={30}
           autoFocus={true}
           onChange={onChangeId}
-        ></input>
+        />
         (0~30자의 영문/숫자)
         <br />
         비밀번호:
@@ -52,7 +71,7 @@ const SignUp = () => {
           value={pw}
           maxLength={30}
           onChange={onChangePw}
-        ></input>
+        />
         (30자 이하)
         <br />
         닉네임:(ㄱ)
@@ -62,29 +81,31 @@ const SignUp = () => {
           value={nick}
           maxLength={30}
           onChange={onChangeNick}
-        ></input>
+        />
         <br />
         성별:
-        <input
-          type="radio"
-          name="gender"
-          value="male"
-          checked
-          onChange={onChangeGender}
-        >
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            checked
+            onChange={onChangeGender}
+          />
           남성
-        </input>
-        <input
-          type="radio"
-          name="gender"
-          value="female"
-          onChange={onChangeGender}
-        >
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            value="female"
+            onChange={onChangeGender}
+          />
           여성
-        </input>
+        </label>
         <br />
         생년월일:
-        <select name="birthdayYear" onChange={onChangebirthday}>
+        <select name="birthdayYear" onChange={onChangebirthYear}>
           <option value="1970">1970년</option>
           <option value="1971">1971년</option>
           <option value="1972">1972년</option>
@@ -137,7 +158,7 @@ const SignUp = () => {
           <option value="2019">2019년</option>
           <option value="2020">2020년</option>
         </select>
-        <select name="birthdayMonth" onChange>
+        <select name="birthdayMonth" onChange={onChangebirthMonth}>
           <option value="1">1월</option>
           <option value="2">2월</option>
           <option value="3">3월</option>
@@ -151,7 +172,7 @@ const SignUp = () => {
           <option value="11">11월</option>
           <option value="12">12월</option>
         </select>
-        <select name="birthdayDay" onChange>
+        <select name="birthdayDay" onChange={onChangebirthDay}>
           <option value="1">1일</option>
           <option value="2">2일</option>
           <option value="3">3일</option>
