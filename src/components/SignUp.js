@@ -34,7 +34,8 @@ const SignUp = () => {
   if (birthYear && birthMonth && birthDay) {
     birthDays = `${birthYear}-${birthMonth}-${birthDay}`;
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     console.log('서버에 요청');
     axios
       .post('http://localhost:5000/SignUp', {
@@ -48,6 +49,7 @@ const SignUp = () => {
         alert('회원가입에 성공했습니다.');
       })
       .catch((err) => console.error(err));
+    window.location.href = 'https://localhost:3000/';
   };
   return (
     <>
