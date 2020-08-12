@@ -60,6 +60,7 @@ const SignUp = () => {
           value={id}
           maxLength={30}
           autoFocus={true}
+          required
           onChange={onChangeId}
         />
         (0~30자의 영문/숫자)
@@ -70,6 +71,7 @@ const SignUp = () => {
           name="pw"
           value={pw}
           maxLength={30}
+          required
           onChange={onChangePw}
         />
         (30자 이하)
@@ -80,6 +82,7 @@ const SignUp = () => {
           name="nickname"
           value={nick}
           maxLength={30}
+          required
           onChange={onChangeNick}
         />
         <br />
@@ -89,7 +92,7 @@ const SignUp = () => {
             type="radio"
             name="gender"
             value="male"
-            checked
+            checked={gender === 'male'}
             onChange={onChangeGender}
           />
           남성
@@ -99,6 +102,7 @@ const SignUp = () => {
             type="radio"
             name="gender"
             value="female"
+            checked={gender === 'female'}
             onChange={onChangeGender}
           />
           여성
